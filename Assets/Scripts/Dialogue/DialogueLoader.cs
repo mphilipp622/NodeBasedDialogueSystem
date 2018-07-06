@@ -103,7 +103,17 @@ public class DialogueLoader : MonoBehaviour
 							newFSM.AddTransition(newNode.state, newNode.Outputs[0].connections[0].body.state, 0);
 					}
 					else if (newNode.returnsToChoiceNode)
-						newFSM.AddTransition(newNode.state, newNode.previousChoiceNode.Inputs[0].connection.body.state, 0);
+					{
+						// Iterate over the previous choice node and create transitions for this state to go to any of the choice options on the previous choice node.
+						for (int j = 0; j < newNode.previousChoiceNode.Outputs.Count; j++)
+						{
+							if (newNode.previousChoiceNode.Outputs[j].connections.Count == 0)
+								continue;
+
+							newFSM.AddTransition(newNode.state, newNode.previousChoiceNode.Outputs[j].connections[0].body.state, j + 1);
+						}
+
+					}
 					else
 						// handle the final state case. A dialogue node with no output connection must be a final state so it transitions to -1.
 						newFSM.AddTransition(newNode.state, -1, 0);

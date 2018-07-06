@@ -36,7 +36,7 @@ MonoBehaviour:
   requiredGameStateSelections: 
   scrollOffset: {x: -1822.5, y: 111}
   zoom: 2
-  numberOfTimesConversationCanHappen: 1
+  numberOfTimesConversationCanHappen: -1
   probabilityOfOccurrence: 1
 --- !u!114 &114004583897830160
 MonoBehaviour:
@@ -295,8 +295,8 @@ MonoBehaviour:
   body: {fileID: 114491776226641298}
   rect:
     serializedVersion: 2
-    x: 1491.5
-    y: 202
+    x: 1523.5
+    y: 203
     width: 345
     height: 16
   connections: []
@@ -809,8 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1486.5
-    y: 182
+    x: 1518.5
+    y: 183
     width: 350
     height: 50
   Inputs:
@@ -1492,8 +1492,8 @@ MonoBehaviour:
   body: {fileID: 114491776226641298}
   rect:
     serializedVersion: 2
-    x: 1486.5
-    y: 202
+    x: 1518.5
+    y: 203
     width: 345
     height: 16
   connection: {fileID: 114008616870733648}
