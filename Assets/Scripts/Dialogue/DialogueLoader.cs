@@ -85,6 +85,9 @@ public class DialogueLoader : MonoBehaviour
 
 					foreach (GameObject character in newNode.speakers)
 					{
+						if (!characters.ContainsKey(character.name))
+							return; // stop loading this conversation if this character does not exist in the scene.
+
 						newSpeakerList.Add(characters[character.name]);
 						newFSM.AddParticipant(characters[character.name]);
 					}
