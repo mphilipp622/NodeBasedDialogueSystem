@@ -12,6 +12,6 @@ In the root directory of the repo, you'll find a file called "NodeBasedDialogueS
 
 ## How to Use
 
-Please refer to the HowToUse.pdf file located in the Assets/Node_Editor folder in the unity package. Additionally, you can view a tutorial video here: https://youtu.be/lCHmfbOH5iI
+Please refer to the HowToUse.pdf file located in the Assets/Node_Editor folder in the unity package. Additionally, you can [view a tutorial video detailing how to use the asset](https://youtu.be/lCHmfbOH5iI)
 
-Additionally, you can view more information about creating speech bubbles here: https://www.youtube.com/watch?v=U3Y4K0q5zoY&feature=youtu.be
+Additionally, you can [watch this video about working with speech bubbles](https://www.youtube.com/watch?v=U3Y4K0q5zoY&feature=youtu.be).
