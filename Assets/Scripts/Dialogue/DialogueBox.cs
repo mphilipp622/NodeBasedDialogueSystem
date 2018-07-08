@@ -101,7 +101,7 @@ public class DialogueBox : MonoBehaviour
 	{
 		if (textRenderer.isTextOverflowing)
 		{
-			dialoguePanel.sizeDelta += new Vector2(0, textRenderer.fontSize);
+			dialoguePanel.sizeDelta += new Vector2(0, textRenderer.fontSize + 5f); // the 5f is a constant that makes the bubble larger than the text area.
 			textRenderer.rectTransform.sizeDelta += new Vector2(0, textRenderer.fontSize);
 		}
 	}
