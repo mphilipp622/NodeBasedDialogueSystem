@@ -36,7 +36,7 @@ public class DialogueLoader : MonoBehaviour
 		foreach (GameObject character in GameObject.FindGameObjectsWithTag("Character"))
 			characters.Add(character.name, character);
 			
-		characters.Add("Player", GameObject.FindGameObjectWithTag("Player"));
+		characters.Add(GameObject.FindWithTag("Player").name, GameObject.FindGameObjectWithTag("Player"));
 	}
 
 
@@ -67,7 +67,7 @@ public class DialogueLoader : MonoBehaviour
 					if (newNode.isStartState)
 					{
 						// Assign the initiator to the player if the player initiation toggle has been set on the start state. Otherwise, set it to the npc's name.
-						initiator = newNode.playerInitiatesConversation ? "Player" : newNode.speakers[0].name;
+						initiator = newNode.playerInitiatesConversation ? GameObject.FindWithTag("Player").name : newNode.speakers[0].name;
 					}
 
 					// Separate the style sprite into a body and tail. Note that the body and tail sprites MUST have the same prefix to their names as the original style. For instance, if the original style is "NormalDialogue", then the body and tail must be "NormalDialogueBody" and "NormalDialogueTail".

@@ -294,9 +294,8 @@ public class DialogueFSM
 	/// </summary>
 	public bool ContainsPlayer()
 	{
-		return participants.ContainsKey("Player");
+		return participants.ContainsKey(GameObject.FindWithTag("Player").name);
 	}
-
 
 	/// <summary>
 	/// Returns true if this conversation has not exceeded the number of times it can occur.

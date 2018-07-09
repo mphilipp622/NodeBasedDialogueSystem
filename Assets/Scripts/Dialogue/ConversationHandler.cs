@@ -60,7 +60,7 @@ public class ConversationHandler : MonoBehaviour
 		}
 
 		// add player to the hashtable.
-		dialogueManagers.Add(GameObject.Find("Player"), GameObject.Find("Player").GetComponent<DialogueManager>());
+		dialogueManagers.Add(GameObject.FindWithTag("Player"), GameObject.FindWithTag("Player").GetComponent<DialogueManager>());
 	}
 
 
@@ -82,7 +82,7 @@ public class ConversationHandler : MonoBehaviour
 		// next, we need to iterate over the participants and make sure all of them are available for a conversation.
 		// Note that each character will check if the necessary participants are in range of them. This means that this
 		// function will only ever be called from a character who is in close proximity to each participant.
-		if(!conversation.ContainsPlayer())
+		if (!conversation.ContainsPlayer())
 		{
 			// Note that the player can interrupt a conversation to start a new one. NPC's, however, must go through this process first.
 			foreach (KeyValuePair<string, GameObject> participant in conversation.GetParticipants())
@@ -91,6 +91,8 @@ public class ConversationHandler : MonoBehaviour
 					return;
 			}
 		}
+		else if (conversation.ContainsPlayer() && !dialogueManagers[GameObject.FindWithTag("Player")].CanTalk())
+			return;
 
 		// If we get here, then we've confirmed all participants are available. Therefore, we can start the conversation.
 		// Add a new conversation to the hashtable of active conversations.
