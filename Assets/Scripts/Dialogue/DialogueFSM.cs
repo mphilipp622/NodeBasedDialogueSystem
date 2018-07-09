@@ -260,28 +260,25 @@ public class DialogueFSM
 	/// <param name="checkParticipants">Pass charactersInRange from DialogueManager</param>
 	public bool AreCharactersInRangeParticipants(Dictionary<string, GameObject> checkParticipants)
 	{
-		bool equal = false;
-		if (participants.Count == checkParticipants.Count) // Require equal count.
+		bool equal = true;
+		
+		foreach (var pair in participants)
 		{
-			equal = true;
-			foreach (var pair in participants)
+			GameObject value;
+			if (checkParticipants.TryGetValue(pair.Key, out value))
 			{
-				GameObject value;
-				if (checkParticipants.TryGetValue(pair.Key, out value))
+				// Require value be equal.
+				if (value != pair.Value)
 				{
-					// Require value be equal.
-					if (value != pair.Value)
-					{
-						equal = false;
-						break;
-					}
-				}
-				else
-				{
-					// Require key be present.
 					equal = false;
 					break;
 				}
+			}
+			else
+			{
+				// Require key be present.
+				equal = false;
+				break;
 			}
 		}
 
